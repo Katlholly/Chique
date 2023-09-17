@@ -104,13 +104,13 @@ display:inline-block;
 }
 
 .line {
-width: 80px;
-height: 80px;
+width: 50px;
+height: 50px;
 right:0px;
 background: #D5B9A1;
 cursor: pointer;
 display: block;
-padding: 16px;
+padding: 30px;
 position: fixed;
 z-index: 11;
 top:0px;
