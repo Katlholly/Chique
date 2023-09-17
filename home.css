@@ -322,7 +322,7 @@ justify-content: flex-end;
   flex: 0 0 100%;
   padding: 20px;
   background: #D5B9A1;
-  border-radius: 3px;
+  border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
   scroll-snap-align: start;
   transition: all 0.2s;
