@@ -123,7 +123,7 @@ top:0px;
 background: #222;
 content: '';
 display: block;
-height: 1px;
+height: 3px;
 position: absolute;
 transition: background ease .3s, top ease .3s .3s, transform ease .3s;
 width: 50px;
