@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<!--    E-Commerce
+-->
+	<title>Chique</title>
+
+	<!-- from com3105-project.html -->
+	<link rel="stylesheet" href="home.css">
+	</style>
+
+	<!-- #3 add javascript here -->
+	<script language="JavaScript" type="text/javascript">
+		function process() {
+			alert("Execute process()...");
+
+			/* #4 add javascript processing here  */
+			/* #a. selling 3 items only */
+			var totsold = parseFloat(document.querySelector("#amount").innerHTML.slice(1));
+			if (totsold > 0) 
+				var aprvlWin = window.open("com3105_approval.html", "approvalWin", width = "180", height = "150");
+			else 
+				alert("Please enter number of quantity...");
+
+		}
+
+		function renewShoppingCart() {
+			var totalQty = 0;
+			var totalAmount = 0;
+			for (i=1; i<=3; i++) {
+				var qty = parseInt(document.querySelector("#prod" + i + "_qty").value);
+				totalQty += qty;
+				totalAmount += parseFloat(document.querySelector("#prod" + i + "_price").innerHTML.slice(1)) * qty;
+			}
+			document.querySelector("#number").innerHTML = totalQty;
+			document.querySelector("#amount").innerHTML = "$" + totalAmount.toFixed(2);
+		}
+
+		function min(id) {
+			var qty = parseInt(document.querySelector(id + "qty").value);
+			if (qty > 0) {
+				var price = parseFloat(document.querySelector(id + "price").innerHTML.slice(1));
+				document.querySelector(id + "qty").value = qty - 1;
+				document.querySelector(id + "amt").innerHTML = "$" + (price * (qty - 1)).toFixed(2);
+				renewShoppingCart();
+			}
+			if (qty - 1 == 0) {
+				document.querySelector(id + "amt").innerHTML = "--";
+			}
+		}
+
+		function plus(id) {
+			var qty = parseInt(document.querySelector(id + "qty").value);
+			var price = parseFloat(document.querySelector(id + "price").innerHTML.slice(1));
+			document.querySelector(id + "qty").value = qty + 1;
+			document.querySelector(id + "amt").innerHTML = "$" + (price * (qty + 1)).toFixed(2);
+			renewShoppingCart();
+		}
+
+		function changeQty(id, value) {
+			if (value == null || value == "") 
+				value = 0;
+			else if (value.toString().includes("-")) {
+				value = value.toString().replace("-", "");
+				
+			}
+			else {
+				value = parseInt(value);
+			}
+			document.querySelector(id + "qty").value = value;
+			if (value != 0) {
+				var price = parseFloat(document.querySelector(id + "price").innerHTML.slice(1));
+				document.querySelector(id + "amt").innerHTML = "$" + (price * value).toFixed(2);
+			}
+			else
+				document.querySelector(id + "amt").innerHTML = "--";
+			renewShoppingCart();
+		}
+
+	</script>
+
+</head>
+
+<body>
+	<header>
+
+		<nav class="nav-box">
+			<input type="checkbox" id="menu">
+			<label for="menu" class="line">
+			   <div class="menu"></div>
+			</label>
+		
+			<div class="menu-list">
+			   <ul>
+				   <li class="li1"><a href="com3105_shopping_cart.html" ><img class="smallIcon" width="40px" height="40px" src="shoppingCart.png" alt />Shopping Cart</a></button></li>
+				   <li class="li1"><a href=""><img class="smallIcon" width="45px" height="40px" src="favourite.png" alt />Favourite List</a></li>
+				   <li class="li1"><a href="com3105_project.html"><img class="smallIcon" width="45px" height="35px" src="aboutUs.png" alt />About us</a></li>
+			   </ul>
+		  </div>
+		</nav>
+		<div class="list">
+			
+			
+			<table class="tb4">
+				<tr>
+					<td><img width="80px" height="80px" src="ChiqueIcon.jpeg" alt /></td>
+					<td><h1>Chique</h1></td>
+					
+			</tr></table>
+		</div>
+	</header>
+	
+	<section>
+<br><br><br><br><br><br><br><br><br>
+		<article>
+			<p>Our goal is to create exquisite gold and diamond rings that cater to diverse personal styles
+				for a discounted price.</p>
+			<p>We adhere to a strict policy of "All sales are final" no offer refunds or exchanges. </p>
+			<p> Upon receiving your payment, our team will promptly contact you to arrange delivery within the following
+				day.</p>
+		</article>
+
+		<h1>Items Details</h1>
+
+		<!-- #3 table item is hard code, later change to database -->
+		<form>
+			<table>
+				<tr>
+					<th>Item</th>
+					<th>Unit Price</th>
+					<th>Quantity</th>
+					<th>Amount</th>
+				</tr>
+
+				<tr>
+					<td>Diamond - Product 1</td>
+					<td id="prod1_price">$2.98</td>
+					<td>
+						<button type="button" id="prod1_min" onclick="min('#prod1_')">-</button>
+						<input type="number" min="0" id="prod1_qty" value="0" onChange="changeQty('#prod1_', this.value)">
+						<button type="button" id="prod1_plus" onclick="plus('#prod1_')">+</button>
+					</td>
+					<td id="prod1_amt">--</td>
+				</tr>
+
+				<tr>
+					<td>Gold - Product 1</td>
+					<td id="prod2_price">$4.50</td>
+					<td>
+						<button type="button" id="prod2_min" onclick="min('#prod2_')">-</button>
+						<input type="number" min="0" id="prod2_qty" value="0" onChange="changeQty('#prod2_', this.value)">
+						<button type="button" id="prod2_plus" onclick="plus('#prod2_')">+</button>
+					</td>
+					<td id="prod2_amt">--</td>
+				</tr>
+
+				<tr>
+					<td>Crystal - Product 1</td>
+					<td id="prod3_price">$9.98</td>
+					<td>
+						<button type="button" id="prod3_min" onclick="min('#prod3_')">-</button>
+						<input type="number" min="0" id="prod3_qty" value="0" onChange="changeQty('#prod3_', this.value)">
+						<button type="button" id="prod3_plus" onclick="plus('#prod3_')">+</button>
+					</td>
+					<td id="prod3_amt">--</td>
+				</tr>
+			</table>
+
+			<button onclick="reset()">Reset</button>
+
+			<h1>Shopping Cart</h1>
+		
+			<table>
+				<tr>
+					<td>Total Number: </td>
+					<td>
+						<span id="number">0</span>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Total Amount Sold: </td>
+					<td>
+						<span id="amount">$0.00</span>
+					</td>
+				</tr>
+			</table>
+
+			<br />
+			<input type="button" value="Checkout - Use Paypal" onclick="process()" />
+		</form>
+
+		<!-- text message returned from com3105-approval.html -->
+		<h1 id="msg"></h1>
+
+	</section>
+
+	<footer>
+		Contact me: xxx@hsu.edu.hk</p>
+	</footer>
+
+</body>
+
+</html>
