@@ -14,7 +14,7 @@ body {
 .list {
   z-index: 10;
   width:100%;
-  height: 100px;
+  height: 110px;
   background-color: #D5B9A1;
   position: fixed;
   top: 0%;
@@ -126,7 +126,7 @@ display: block;
 height: 1px;
 position: absolute;
 transition: background ease .3s, top ease .3s .3s, transform ease .3s;
-width: 80px;
+width: 50px;
 }
 .line .menu {
 right: 18px;
