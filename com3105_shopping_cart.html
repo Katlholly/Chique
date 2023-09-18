@@ -95,7 +95,7 @@
 		
 			<div class="menu-list">
 			   <ul>
-				   <li class="li1"><a href="com3105_shopping_cart.html" ><img class="smallIcon" width="55px" height="55px" src="shoppingCart.png" alt />Shopping Cart</a></button></li>
+				<li class="li1"><a href="com3105_shopping_cart.html" ><img class="smallIcon" width="55px" height="55px" src="shoppingCart.png" alt />Shopping Cart</a></button></li>
 				<li class="li1"><a href=""><img class="smallIcon" width="75px" height="60px" src="favourite.png" alt />Favourite List</a></li>
 				<li class="li1"><a href="index.html"><img class="smallIcon" width="115px" height="60px" src="aboutUs.png" alt />About Us</a></li>
 			   </ul>
@@ -106,8 +106,8 @@
 			
 			<table class="tb4">
 				<tr>
-					<td><img width="80px" height="80px" src="ChiqueIcon.jpeg" alt /></td>
-					<td><h1>Chique</h1></td>
+					<td><img width="100px" height="100px" src="ChiqueIcon.jpeg" alt /></td>
+					<td><h1 class="title2">Chique</h1></td>
 					
 			</tr></table>
 		</div>
@@ -115,91 +115,98 @@
 	
 	<section>
 <br><br><br><br><br><br><br><br><br>
-		<article>
-			<p>Our goal is to create exquisite gold and diamond rings that cater to diverse personal styles
-				for a discounted price.</p>
-			<p>We adhere to a strict policy of "All sales are final" no offer refunds or exchanges. </p>
-			<p> Upon receiving your payment, our team will promptly contact you to arrange delivery within the following
-				day.</p>
-		</article>
+		
 
 		<h1>Items Details</h1>
 
 		<!-- #3 table item is hard code, later change to database -->
 		<form>
-			<table>
-				<tr>
-					<th>Item</th>
-					<th>Unit Price</th>
-					<th>Quantity</th>
-					<th>Amount</th>
+			<table class="shopCartTb">
+				<tr class="shopCartTr">
+					<th class="title5">Item</th>
+					<th class="title5">Unit Price</th>
+					<th class="title5">Quantity</th>
+					<th class="title5">Amount</th>
 				</tr>
 
-				<tr>
-					<td>Diamond - Product 1</td>
-					<td id="prod1_price">$2.98</td>
-					<td>
-						<button type="button" id="prod1_min" onclick="min('#prod1_')">-</button>
-						<input type="number" min="0" id="prod1_qty" value="0" onChange="changeQty('#prod1_', this.value)">
-						<button type="button" id="prod1_plus" onclick="plus('#prod1_')">+</button>
+				<tr class="shopCartTr">
+					<td class="other">Diamond - Product 1</td>
+					<td  style="text-align: center;" class="other" id="prod1_price">$2.98</td>
+					<td  style="text-align: center;">
+						<button class="QuantityButton" type="button" id="prod1_min" onclick="min('#prod1_')">-</button>
+						<input class="QuantityTA" type="number" min="0" id="prod1_qty" value="0" onChange="changeQty('#prod1_', this.value)">
+						<button class="QuantityButton" type="button" id="prod1_plus" onclick="plus('#prod1_')">+</button>
 					</td>
-					<td id="prod1_amt">--</td>
+					<td  style="text-align: center;" class="other" id="prod1_amt">--</td>
 				</tr>
 
-				<tr>
-					<td>Gold - Product 1</td>
-					<td id="prod2_price">$4.50</td>
-					<td>
-						<button type="button" id="prod2_min" onclick="min('#prod2_')">-</button>
-						<input type="number" min="0" id="prod2_qty" value="0" onChange="changeQty('#prod2_', this.value)">
-						<button type="button" id="prod2_plus" onclick="plus('#prod2_')">+</button>
+				<tr class="shopCartTr">
+					<td class="other">Gold - Product 1</td>
+					<td  style="text-align: center;" class="other" id="prod2_price">$4.50</td>
+					<td  style="text-align: center;">
+						<button class="QuantityButton" type="button" id="prod2_min" onclick="min('#prod2_')">-</button>
+						<input class="QuantityTA" type="number" min="0" id="prod2_qty" value="0" onChange="changeQty('#prod2_', this.value)">
+						<button class="QuantityButton" type="button" id="prod2_plus" onclick="plus('#prod2_')">+</button>
 					</td>
-					<td id="prod2_amt">--</td>
+					<td  style="text-align: center;" class="other" id="prod2_amt">--</td>
 				</tr>
 
-				<tr>
-					<td>Crystal - Product 1</td>
-					<td id="prod3_price">$9.98</td>
-					<td>
-						<button type="button" id="prod3_min" onclick="min('#prod3_')">-</button>
-						<input type="number" min="0" id="prod3_qty" value="0" onChange="changeQty('#prod3_', this.value)">
-						<button type="button" id="prod3_plus" onclick="plus('#prod3_')">+</button>
+				<tr class="shopCartTr">
+					<td class="other">Crystal - Product 1</td>
+					<td  style="text-align: center;" class="other" id="prod3_price">$9.98</td>
+					<td  style="text-align: center;">
+						<button class="QuantityButton" type="button" id="prod3_min" onclick="min('#prod3_')">-</button>
+						<input class="QuantityTA" type="number" min="0" id="prod3_qty" value="0" onChange="changeQty('#prod3_', this.value)">
+						<button class="QuantityButton" type="button" id="prod3_plus" onclick="plus('#prod3_')">+</button>
 					</td>
-					<td id="prod3_amt">--</td>
+					<td  style="text-align: center;" class="other" id="prod3_amt">--</td>
 				</tr>
 			</table>
 
-			<button onclick="reset()">Reset</button>
+			<button class="ResetButton" onclick="reset()">Reset</button>
 
 			<h1>Shopping Cart</h1>
 		
 			<table>
 				<tr>
-					<td>Total Number: </td>
+					<td class="title4">Total Number: </td>
 					<td>
-						<span id="number">0</span>
+						<span class="other" id="number">0</span>
 					</td>
 				</tr>
 
 				<tr>
-					<td>Total Amount Sold: </td>
+					<td class="title4">Total Amount Sold: </td>
 					<td>
-						<span id="amount">$0.00</span>
+						<span class="other" id="amount">$0.00</span>
 					</td>
 				</tr>
 			</table>
 
 			<br />
-			<input type="button" value="Checkout - Use Paypal" onclick="process()" />
+			<input class="PayButton" type="button" value="Checkout - Use Paypal" onclick="process()" />
 		</form>
 
 		<!-- text message returned from com3105-approval.html -->
 		<h1 id="msg"></h1>
 
+		<article>
+			<ul>
+				<li class="title4">Terms & Conditions:</li>
+				<li class="other">Our goal is to create exquisite gold and diamond rings that cater to diverse personal styles
+					for a discounted price.</li>
+
+				<li class="other">We adhere to a strict policy of "All sales are final" no offer refunds or exchanges.</li>
+				
+				<li class="other">Upon receiving your payment, our team will promptly contact you to arrange delivery within the following
+					day.</li>
+
+			  </ul>
+		</article>
 	</section>
 
 	<footer>
-		Contact me: xxx@hsu.edu.hk</p>
+		<p>Contact me: xxx@hsu.edu.hk</p>
 	</footer>
 
 </body>
