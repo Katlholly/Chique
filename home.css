@@ -1,6 +1,7 @@
 body {
   background: #fff;
   overflow-x: hidden;
+  
 }
 
 .bigBG { 
@@ -22,6 +23,77 @@ body {
   right:0%;
   
 }
+
+.ResetButton{   
+  width: 70px;
+  height: 30px;
+  border-color: #825831;
+  border-radius: 15cm;
+  font-family:'Times New Roman';
+  color: #825831;
+  font-size: 20px;
+  background-color: #D5B9A1;
+  margin-top:1vb;
+}
+.ResetButton:hover{
+  background-image:linear-gradient(to right, #825831,#D5B9A1);
+  animation:slidebg 2s linear infinite;
+  color: #fff;
+}
+.ResetButton:active {
+  transform: translateY(4px);
+}
+
+.PayButton{   
+  width: 200px;
+  height: 30px;
+  border-color: #825831;
+  border-radius: 15cm;
+  font-family:'Times New Roman';
+  color: #825831;
+  font-size: 20px;
+  background-color: #D5B9A1;
+  margin-top:1vb;
+}
+.PayButton:hover{
+  background-image:linear-gradient(to right, #825831,#D5B9A1);
+  animation:slidebg 2s linear infinite;
+  color: #fff;
+}
+.PayButton:active {
+  transform: translateY(4px);
+}
+
+.QuantityButton{   
+  width: 30px;
+  height: 30px;
+  border-color: #825831;
+  border-radius: 15cm;
+  font-family:'Times New Roman';
+  color: #825831;
+  font-size: 20px;
+  background-color: #D5B9A1;
+  margin-top:1vb;
+}
+.QuantityButton:hover{
+  background-image:linear-gradient(to right, #825831,#D5B9A1);
+  animation:slidebg 2s linear infinite;
+  color: #fff;
+}
+.QuantityButton:active {
+  transform: translateY(4px);
+}
+
+.QuantityTA{
+
+    border-radius: 15cm;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    background-color: #D5B9A1;
+    animation: slidebg 2s linear infinite;
+}
+
 .HomeBigIcon{
   margin: auto;
 
@@ -264,7 +336,15 @@ div{
   list-style: none;
 }
 
+.title5{ 
+  width: 200px;
+  font-size: 20px;
+  color: #CC9E8D;
+  list-style: none;
+}
+
 .other{ 
+  resize: none;
   margin-left: 40px;
   font-size: 20px;
   color: #5c1d06;
@@ -272,6 +352,9 @@ div{
   padding-top: 4px;
   padding-bottom: 4px;
 }
+
+
+
 .date{ 
 display: flex;
 justify-content: flex-end;
@@ -286,6 +369,14 @@ justify-content: flex-end;
 .tbLength{
   margin: auto;
   margin-top:60px;
+}
+
+.shopCartTb{
+  height: 250px;
+}
+
+.shopCartTr{
+  height: 50px;
 }
 
 .container2 {
