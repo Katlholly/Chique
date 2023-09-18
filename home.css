@@ -70,6 +70,7 @@ a:link, a:visited {
   display: inline-block;
   border-radius: 15cm;
   font-family: 'Lucida Sans';
+  font-size: 30px;
 }
 
 a:hover, a:active {
@@ -77,22 +78,7 @@ a:hover, a:active {
   color: white;
 }
 
-.button{
 
-  display:block;
-  border-radius: 15cm;
-  color: rgb(49, 8, 8);
-  font-family:monospace;
-  background-image: url("shoppingCart.png");
-  background: linear-gradient(to right,#dfc7b3,rgb(255, 255, 255) );
-  font-size: 20px;
-  text-align: center;
-  height: 50px;
-  width: 200px;
-}
-.button:active {
-  transform: translateY(4px);
-}
 
 .smallIcon{
 display:inline-block;
@@ -100,7 +86,7 @@ display:inline-block;
 
 .li1{
   margin-top: 90px;
-  height:85px;
+  height:110px;
 }
 
 .line {
@@ -109,7 +95,7 @@ height: 50px;
 right:0px;
 background: #D5B9A1;
 cursor: pointer;
-display: block;
+display:block;
 padding: 30px;
 position: fixed;
 z-index: 11;
@@ -121,18 +107,16 @@ top:0px;
 .line .menu::before,
 .line .menu::after {
 background: #222;
-content: '';
-display: block;
+content: ' ';
+display:block;
 height: 3px;
-  top:15px;
 position: absolute;
 transition: background ease .3s, top ease .3s .3s, transform ease .3s;
-width: 50px;
+width: 40px;
 }
 .line .menu {
 right: 18px;
-top: 27px;
-
+top: 55px;
 }
 
 .line .menu::before {
