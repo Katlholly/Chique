@@ -86,85 +86,85 @@
 
 <body>
 	<header>
-
 		<nav class="nav-box">
 			<input type="checkbox" id="menu">
 			<label for="menu" class="line">
-			   <div class="menu"></div>
+				<div class="menu"></div>
 			</label>
-		
+
 			<div class="menu-list">
-			   <ul>
-				<li class="li1"><a href="com3105_shopping_cart.html" ><img class="smallIcon" width="55px" height="55px" src="shoppingCart.png" alt />Shopping Cart</a></button></li>
-				<li class="li1"><a href=""><img class="smallIcon" width="75px" height="60px" src="favourite.png" alt />Favourite List</a></li>
-				<li class="li1"><a href="index.html"><img class="smallIcon" width="115px" height="60px" src="aboutUs.png" alt />About Us</a></li>
-			   </ul>
-		  </div>
+				<ul>
+					<li class="li1"><a class="menuButton" href="com3105_shopping_cart.html"><img width="55px"
+						height="55px" src="shoppingCart.png" alt />Shopping Cart</a></button></li>
+					<li class="li1"><a class="menuButton" href=""><img width="80px" height="65px"
+								src="favourite.png" alt />Favourite List</a></li>
+					<li class="li1"><a class="menuButton" href="com3105_info.html"><img width="55px" height="55px"
+								src="info.png" alt />Information of rings</a></li>
+					<li class="li1"><a class="menuButton" href="com3105_project.html"><img width="80px"
+								height="75px" src="aboutUs.png" alt />About Us</a></li>
+				</ul>
+			</div>
 		</nav>
-		<div class="list">
-			
-			
-			<table class="tb4">
+		<div class="Header">
+			<table>
 				<tr>
-					<td><img width="100px" height="100px" src="ChiqueIcon.jpeg" alt /></td>
-					<td><h1 class="title2">Chique</h1></td>
-					
-			</tr></table>
+					<td class="headTitle"><img class="headChique" src="title.png" alt="Chique"></td>
+				</tr>
+			</table>
 		</div>
 	</header>
 	
 	<section>
-<br><br><br><br><br><br><br><br><br>
-		
+		<div class="order_area">
+					
+			<h1>Your Order</h1>
 
-		<h1>Items Details</h1>
+			<!-- #3 table item is hard code, later change to database -->
+			<form>
+				<table class="shopCartTb">
+					<tr class="shopCartTr">
+						<th class="title5">Item</th>
+						<th class="title5">Unit Price</th>
+						<th class="title5">Quantity</th>
+						<th class="title5">Amount</th>
+					</tr>
 
-		<!-- #3 table item is hard code, later change to database -->
-		<form>
-			<table class="shopCartTb">
-				<tr class="shopCartTr">
-					<th class="title5">Item</th>
-					<th class="title5">Unit Price</th>
-					<th class="title5">Quantity</th>
-					<th class="title5">Amount</th>
-				</tr>
+					<tr class="shopCartTr">
+						<td class="other">Diamond - Product 1</td>
+						<td  style="text-align: center;" class="other" id="prod1_price">$2.98</td>
+						<td  style="text-align: center;">
+							<button class="QuantityButton" type="button" id="prod1_min" onclick="min('#prod1_')">-</button>
+							<input class="QuantityTA" type="number" min="0" id="prod1_qty" value="0" onChange="changeQty('#prod1_', this.value)">
+							<button class="QuantityButton" type="button" id="prod1_plus" onclick="plus('#prod1_')">+</button>
+						</td>
+						<td  style="text-align: center;" class="other" id="prod1_amt">--</td>
+					</tr>
 
-				<tr class="shopCartTr">
-					<td class="other">Diamond - Product 1</td>
-					<td  style="text-align: center;" class="other" id="prod1_price">$2.98</td>
-					<td  style="text-align: center;">
-						<button class="QuantityButton" type="button" id="prod1_min" onclick="min('#prod1_')">-</button>
-						<input class="QuantityTA" type="number" min="0" id="prod1_qty" value="0" onChange="changeQty('#prod1_', this.value)">
-						<button class="QuantityButton" type="button" id="prod1_plus" onclick="plus('#prod1_')">+</button>
-					</td>
-					<td  style="text-align: center;" class="other" id="prod1_amt">--</td>
-				</tr>
+					<tr class="shopCartTr">
+						<td class="other">Gold - Product 1</td>
+						<td  style="text-align: center;" class="other" id="prod2_price">$4.50</td>
+						<td  style="text-align: center;">
+							<button class="QuantityButton" type="button" id="prod2_min" onclick="min('#prod2_')">-</button>
+							<input class="QuantityTA" type="number" min="0" id="prod2_qty" value="0" onChange="changeQty('#prod2_', this.value)">
+							<button class="QuantityButton" type="button" id="prod2_plus" onclick="plus('#prod2_')">+</button>
+						</td>
+						<td  style="text-align: center;" class="other" id="prod2_amt">--</td>
+					</tr>
 
-				<tr class="shopCartTr">
-					<td class="other">Gold - Product 1</td>
-					<td  style="text-align: center;" class="other" id="prod2_price">$4.50</td>
-					<td  style="text-align: center;">
-						<button class="QuantityButton" type="button" id="prod2_min" onclick="min('#prod2_')">-</button>
-						<input class="QuantityTA" type="number" min="0" id="prod2_qty" value="0" onChange="changeQty('#prod2_', this.value)">
-						<button class="QuantityButton" type="button" id="prod2_plus" onclick="plus('#prod2_')">+</button>
-					</td>
-					<td  style="text-align: center;" class="other" id="prod2_amt">--</td>
-				</tr>
+					<tr class="shopCartTr">
+						<td class="other">Crystal - Product 1</td>
+						<td  style="text-align: center;" class="other" id="prod3_price">$9.98</td>
+						<td  style="text-align: center;">
+							<button class="QuantityButton" type="button" id="prod3_min" onclick="min('#prod3_')">-</button>
+							<input class="QuantityTA" type="number" min="0" id="prod3_qty" value="0" onChange="changeQty('#prod3_', this.value)">
+							<button class="QuantityButton" type="button" id="prod3_plus" onclick="plus('#prod3_')">+</button>
+						</td>
+						<td  style="text-align: center;" class="other" id="prod3_amt">--</td>
+					</tr>
+				</table>
 
-				<tr class="shopCartTr">
-					<td class="other">Crystal - Product 1</td>
-					<td  style="text-align: center;" class="other" id="prod3_price">$9.98</td>
-					<td  style="text-align: center;">
-						<button class="QuantityButton" type="button" id="prod3_min" onclick="min('#prod3_')">-</button>
-						<input class="QuantityTA" type="number" min="0" id="prod3_qty" value="0" onChange="changeQty('#prod3_', this.value)">
-						<button class="QuantityButton" type="button" id="prod3_plus" onclick="plus('#prod3_')">+</button>
-					</td>
-					<td  style="text-align: center;" class="other" id="prod3_amt">--</td>
-				</tr>
-			</table>
-
-			<button class="ResetButton" onclick="reset()">Reset</button>
-
+				<button class="ResetButton" onclick="reset()">Reset</button>
+			</div>
 			<h1>Shopping Cart<img class="smallIcon" width="55px" height="50px" src="shoppingCart.png" alt /></h1>
 		
 			<table>
@@ -205,9 +205,58 @@
 		</article>
 	</section>
 
-	<footer>
-		<p>Contact us: xxx@hsu.edu.hk Or Come to Our Website Now (to Hans: Feel free to use your phone too)<p><a href="https://katlholly.github.io/Chique/">https://katlholly.github.io/Chique/</a></p></p>
-	</footer>
+	<footer class="footer-distributed">
+
+		<div class="footer-left">
+			<table>
+				<tr>
+			<td><img class="headChique2" src="title.png" alt="Chique"/></td>
+			<td><img src="ChiqueIcon.jpeg" class="smallIcon" alt="Icon"/></td>
+			</tr>
+			</table>
+			<form action="mailto:s208043@hsu.edu.hk" method="post" enctype="text/plain">
+					<table class="tb" style="border: 2; text-align: center;" >
+						<tr>
+							<td style="text-align: center;">Message to Chique: </td>
+							<td><textarea class="textArea" maxlength=200 placeholder="Type Here"></textarea></td>
+						</tr>		
+						<tr>
+							<td colspan="2" style="text-align: center;">
+								<input type="submit" class = "title7" value="Send" />
+								<input type="reset" class = "title7" value="Clear" />
+							</td>				
+						</tr>
+					</table>	
+				</form>
+  
+		  <p style="text-align: start;">Chique © 2023</p>
+		</div>
+  
+		<div class="footer-center">
+
+		  <div style="text-align: center;">
+			
+			<p>Hang Shin Link, Siu Lek Yuen, Shatin, N.T., Hong Kong</p>
+			  <p>Contact us: xxx@hsu.edu.hk Or to Our Website Now (to Hans: Feel free to use your phone too)</p>
+			<p><a href="https://katlholly.github.io/Chique/">https://katlholly.github.io/Chique/</a></p>
+			<p>Phone Number: +852-12345678</p>
+			<p>Mail: Chique2023@gmail.com</p>
+		  </div>
+
+		</div>
+  
+		<div class="footer-right">
+		
+			<p>*Limited Special Offer:*</p>
+			<p>● 10% off for 2 pieces</p>
+			<p>● 15% off for 3 pieces</p>
+			<p>● 20% off for 4 pieces</p>
+			<p>● Free Local Delievery if exceeds HKD $650</p>
+			<p>● Free Overseas Delievery if exceeds HKD $1000</p>
+  
+		</div>
+  
+	  </footer>
 
 </body>
 
