@@ -480,7 +480,7 @@ input#menu {
 
 .border .IntroImage {
   height: 90%;
-  min-width: 50%;
+  min-width: 40%;
 }
 
 .rightCol {
@@ -558,6 +558,7 @@ input#menu {
   overflow: scroll;
   resize:none;
   margin: auto;
+  min-width: 50%
 }
 
 .introDescript::first-letter {
