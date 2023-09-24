@@ -540,7 +540,7 @@ input#menu {
 
 .introTitle {
   text-align: center;
-  margin:auto;
+  margin-left: 5px;
   font-size: 85px;
   font-family: 'Autumn-Wind';
   font-weight: bold;
