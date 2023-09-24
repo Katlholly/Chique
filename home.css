@@ -556,7 +556,8 @@ input#menu {
   padding-top: 4px;
   padding-bottom: 6px;
   overflow: scroll;
-  margin: auto;
+  resize: none;
+  margin-left: 5px;
 }
 
 .introDescript::first-letter {
