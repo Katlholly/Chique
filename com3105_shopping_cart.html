@@ -100,7 +100,7 @@
 								src="favourite.png" alt />Favourite List</a></li>
 					<li class="li1"><a class="menuButton" href="com3105_info.html"><img width="55px" height="55px"
 								src="info.png" alt />Information of rings</a></li>
-					<li class="li1"><a class="menuButton" href="com3105_project.html"><img width="80px"
+					<li class="li1"><a class="menuButton" href="index.html"><img width="80px"
 								height="75px" src="aboutUs.png" alt />About Us</a></li>
 				</ul>
 			</div>
@@ -113,80 +113,94 @@
 			</table>
 		</div>
 	</header>
+
+	<div class="cart_title">
+		<h1>Your Order</h1>
+	</div>
 	
 	<section>
-		<div class="order_area">
+
+		<div class="cart_container">
+			<div class="order_area">
 					
-			<h1>Your Order</h1>
+				
 
-			<!-- #3 table item is hard code, later change to database -->
-			<form>
-				<table class="shopCartTb">
-					<tr class="shopCartTr">
-						<th class="title5">Item</th>
-						<th class="title5">Unit Price</th>
-						<th class="title5">Quantity</th>
-						<th class="title5">Amount</th>
-					</tr>
+				<!-- #3 table item is hard code, later change to database -->
+				<form>
+					<table class="shopCartTb">
 
-					<tr class="shopCartTr">
-						<td class="other">Diamond - Product 1</td>
-						<td  style="text-align: center;" class="other" id="prod1_price">$2.98</td>
-						<td  style="text-align: center;">
-							<button class="QuantityButton" type="button" id="prod1_min" onclick="min('#prod1_')">-</button>
-							<input class="QuantityTA" type="number" min="0" id="prod1_qty" value="0" onChange="changeQty('#prod1_', this.value)">
-							<button class="QuantityButton" type="button" id="prod1_plus" onclick="plus('#prod1_')">+</button>
-						</td>
-						<td  style="text-align: center;" class="other" id="prod1_amt">--</td>
-					</tr>
+						<tr class="shopCartTr">
+							<th width="10%" class="title5">Item</th> <!--item picture-->
+							<th width="30%"> </th> <!--item title-->
+							<th width="20%" class="title5">Unit Price</th>
+							<th width="20%" class="title5">Quantity</th>
+							<th width="10%" class="title5">Amount</th>
+						</tr>
 
-					<tr class="shopCartTr">
-						<td class="other">Gold - Product 1</td>
-						<td  style="text-align: center;" class="other" id="prod2_price">$4.50</td>
-						<td  style="text-align: center;">
-							<button class="QuantityButton" type="button" id="prod2_min" onclick="min('#prod2_')">-</button>
-							<input class="QuantityTA" type="number" min="0" id="prod2_qty" value="0" onChange="changeQty('#prod2_', this.value)">
-							<button class="QuantityButton" type="button" id="prod2_plus" onclick="plus('#prod2_')">+</button>
-						</td>
-						<td  style="text-align: center;" class="other" id="prod2_amt">--</td>
-					</tr>
+						<tr class="shopCartTr">
+							<td><img class="prod_img" src="DiamondRing.jpeg"></td>
+							<td>Diamond - Product 1</td>
+							<td class="other" id="prod1_price">$2.98</td>
+							<td>
+								<button class="QuantityButton" type="button" id="prod1_min" onclick="min('#prod1_')">-</button>
+								<input class="QuantityTA" type="number" min="0" id="prod1_qty" value="0" onChange="changeQty('#prod1_', this.value)">
+								<button class="QuantityButton" type="button" id="prod1_plus" onclick="plus('#prod1_')">+</button>
+							</td>
+							<td  class="other" id="prod1_amt">--</td>
+						</tr>
 
-					<tr class="shopCartTr">
-						<td class="other">Crystal - Product 1</td>
-						<td  style="text-align: center;" class="other" id="prod3_price">$9.98</td>
-						<td  style="text-align: center;">
-							<button class="QuantityButton" type="button" id="prod3_min" onclick="min('#prod3_')">-</button>
-							<input class="QuantityTA" type="number" min="0" id="prod3_qty" value="0" onChange="changeQty('#prod3_', this.value)">
-							<button class="QuantityButton" type="button" id="prod3_plus" onclick="plus('#prod3_')">+</button>
-						</td>
-						<td  style="text-align: center;" class="other" id="prod3_amt">--</td>
-					</tr>
-				</table>
+						<tr class="shopCartTr">
+							<td><img class="prod_img" src="GoldRing.jpeg"></td>
+							<td class="other">Gold - Product 1</td>
+							<td class="other" id="prod2_price">$4.50</td>
+							<td >
+								<button class="QuantityButton" type="button" id="prod2_min" onclick="min('#prod2_')">-</button>
+								<input class="QuantityTA" type="number" min="0" id="prod2_qty" value="0" onChange="changeQty('#prod2_', this.value)">
+								<button class="QuantityButton" type="button" id="prod2_plus" onclick="plus('#prod2_')">+</button>
+							</td>
+							<td  class="other" id="prod2_amt">--</td>
+						</tr>
 
-				<button class="ResetButton" onclick="reset()">Reset</button>
+						<tr class="shopCartTr">
+							<td><img class="prod_img" src="WeddingRing.jpeg"></td>
+							<td class="other">Crystal - Product 1</td>
+							<td class="other" id="prod3_price">$9.98</td>
+							<td>
+								<button class="QuantityButton" type="button" id="prod3_min" onclick="min('#prod3_')">-</button>
+								<input class="QuantityTA" type="number" min="0" id="prod3_qty" value="0" onChange="changeQty('#prod3_', this.value)">
+								<button class="QuantityButton" type="button" id="prod3_plus" onclick="plus('#prod3_')">+</button>
+							</td>
+							<td  class="other" id="prod3_amt">--</td>
+						</tr>
+					</table>
+
+					<button class="ResetButton" onclick="reset()">Reset Cart</button>
+				</form>
 			</div>
-			<h1>Shopping Cart<img class="smallIcon" width="55px" height="50px" src="shoppingCart.png" alt /></h1>
+
+			<div class ="pay_area">
+				<form>
+
+					<h1>Summary</h1>
+				
+					<table class="paytb">
+						<tr>
+							<td class="title4">Total Number: </td>
+							<td class="pay_total" id="number" >0
+							</td>
+						</tr>
+
+						<tr>
+							<td class="pay_t">Total:</td>
+							<td class="pay_total" id="amount">$0.00</td>
+						</tr>
+					</table>
+
+					<input class="PayButton" type="button" value="Checkout - Use Paypal" onclick="process()" />
+				</form>
+			</div>
+		</div>
 		
-			<table>
-				<tr>
-					<td class="title4">Total Number: </td>
-					<td>
-						<span class="other" id="number">0</span>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="title4">Total Amount Sold: </td>
-					<td>
-						<span class="other" id="amount">$0.00</span>
-					</td>
-				</tr>
-			</table>
-
-			<br />
-			<input class="PayButton" type="button" value="Checkout - Use Paypal" onclick="process()" />
-		</form>
-
 		<!-- text message returned from com3105-approval.html -->
 		<h1 id="msg"></h1>
 
@@ -196,7 +210,7 @@
 				<li class="other">Our goal is to create exquisite gold and diamond rings that cater to diverse personal styles
 					for a discounted price.</li>
 
-				<li class="other">We adhere to a strict policy of "All sales are final" no offer refunds or exchanges.</li>
+				<li class="other">We are here to a strict policy of "All sales are final" no offer refunds or exchanges.</li>
 				
 				<li class="other">Upon receiving your payment, our team will promptly contact you to arrange delivery within the following
 					day.</li>
