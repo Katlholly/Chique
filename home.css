@@ -29,7 +29,6 @@ body {
   margin-top: 60px;
   margin-left: -10px;
   vertical-align: middle;
-  min-width: 550px;
 }
 
 .bgAni {
@@ -100,82 +99,6 @@ td.headTitle {
   margin-right: auto;
 }
 
-.ResetButton {
-  width: 70px;
-  height: 30px;
-  border-color: #825831;
-  border-radius: 15cm;
-  font-family: 'Times New Roman';
-  color: #825831;
-  font-size: 20px;
-  background-color: #D5B9A1;
-  margin-top: 1vb;
-}
-
-.ResetButton:hover {
-  background-image: linear-gradient(to right, #825831, #D5B9A1);
-  animation: slidebg 2s linear infinite;
-  color: #fff;
-}
-
-.ResetButton:active {
-  transform: translateY(4px);
-}
-
-.PayButton {
-  width: 200px;
-  height: 30px;
-  border-color: #825831;
-  border-radius: 15cm;
-  font-family: 'Times New Roman';
-  color: #825831;
-  font-size: 20px;
-  background-color: #D5B9A1;
-  margin-top: 1vb;
-}
-
-.PayButton:hover {
-  background-image: linear-gradient(to right, #825831, #D5B9A1);
-  animation: slidebg 2s linear infinite;
-  color: #fff;
-}
-
-.PayButton:active {
-  transform: translateY(4px);
-}
-
-.QuantityButton {
-  text-align: center;
-  width: 30px;
-  height: 30px;
-  border-color: #825831;
-  border-radius: 15cm;
-  font-family: 'Times New Roman';
-  color: #825831;
-  font-size: 20px;
-  background-color: #D5B9A1;
-  margin-top: 1vb;
-}
-
-.QuantityButton:hover {
-  background-image: linear-gradient(to right, #825831, #D5B9A1);
-  animation: slidebg 2s linear infinite;
-  color: #fff;
-}
-
-.QuantityButton:active {
-  transform: translateY(4px);
-}
-
-.QuantityTA {
-
-  border-radius: 15cm;
-  width: 60px;
-  height: 30px;
-  font-size: 20px;
-  background-color: #D5B9A1;
-  animation: slidebg 2s linear infinite;
-}
 
 .HomeBigIcon {
   margin: auto;
@@ -183,8 +106,9 @@ td.headTitle {
 }
 
 h1 {
-  font-family: "Lucida Handwriting";
+  font-family: "avenir";
   color: #825831;
+  font-size: 30px;
 }
 
 h3 {
@@ -452,7 +376,7 @@ input#menu {
 
 .frame2 {
   width: 100vw;
-  height: 750px;
+  height: auto;
   margin: auto;
   margin-left: -10px;
   background: #d2c2b1;
@@ -461,7 +385,8 @@ input#menu {
 
 .Container {
   display: flex;
-  height: 740px;
+  height: auto;
+  width: auto;
 }
 
 .left {
@@ -479,8 +404,10 @@ input#menu {
 }
 
 .border .IntroImage {
-  height: 90%;
-  min-width: 40%;
+  height: 500px;
+  width: auto;
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
 
 .rightCol {
@@ -516,9 +443,9 @@ input#menu {
 }
 
 .title4 {
-  font-size: 20px;
+  font-size: 22px;
   color: #CC9E8D;
-  list-style: none;
+  font-family: "avenir";
 }
 
 .title6{
@@ -528,19 +455,8 @@ input#menu {
 
 }
 
-.other {
-  resize: none;
-  margin-left: 40px;
-  font-size: 20px;
-  color: #5c1d06;
-  padding-left: 4px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
 .introTitle {
   text-align: center;
-  margin-left: 5px;
   font-size: 85px;
   font-family: 'Autumn-Wind';
   font-weight: bold;
@@ -553,11 +469,11 @@ input#menu {
   text-align: center;
   font-size: 3vmin;
   color: #5c1d06;
-  padding-top: 4px;
+  /* padding-top: 4px; */
   padding-bottom: 6px;
-  overflow: scroll;
-  resize: none;
-  margin-left: 5px;
+  /* overflow: scroll; */
+  resize:none;
+  margin: auto;
 }
 
 .introDescript::first-letter {
@@ -591,6 +507,7 @@ input#menu {
 .container2 {
   margin: auto;
   width: 100vw;
+  height: auto;
 }
 
 .cards {
@@ -776,38 +693,193 @@ input#menu {
 
 /* cart css */
 .order_area {
-  margin-top: 150px;
   margin-left: 5%;
-  border:2px solid #ddd5c9;
-  background-color: #e8e3dc;
   width: 70%;
   height:auto;
-  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 4;
 
 }
 
-.order_area h1{
+.cart_title h1{
   font-family:'carpethen';
-  font-size: 45px;
+  font-size: 50px;
   text-align: center;
-  color: #9b8067;
-
+  color:#825831;
+  padding-top:100px ;
 }
 
 .title5 {
-  width: 200px;
-  font-size: 20px;
+  font-size: 23px;
   color: #CC9E8D;
   list-style: none;
+  font-family: "avenir";
 }
 
 .shopCartTb {
-  height: 50px;
+  height: auto;
+  width: 100%;
+  border-collapse:collapse;
 }
 
 .shopCartTr {
-  height: 50px;
+  height: 50%;
+}
+
+.shopCartTr th{
+  text-align: left;
+  padding-bottom: 1%;
+  border-bottom: 1px solid #947a61c8;
+}
+.td_container{
+  display: flex;
+}
+
+.prod_img{
+  width: 70px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.shopCartTr span{
+  display: flex;
+  padding-left: 5%;
+  padding-top: 25%;
+}
+
+
+.shopCartTr td{
+    height: 120px;
+    text-align: left;
+    margin-left: 40px;
+    font-size: 20px;
+    color: #5c1d06;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom: 0.5px solid #947a61c8;
+}
+
+.cart_container{
+  display: flex;
+  height: auto;
+}
+
+.pay_area{
+  /* border:2px solid #ddd5c9; */
+  background-color: #fafaf1a8;
+  margin-left: 3%;
+  margin-right: 5%;
+  width: 20%;
+  height:auto;
+  padding-left: 2%;
+  padding-right: 2%;
+  /* box-shadow: 0 3px 10px 2px rgba(217, 188, 170, 0.404); */
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+
+.pay_t{
+ color: #874730;
+ font-weight: bold;
+}
+
+.paytb {
+  width: 100%;
+  font-size: 25px;
+  font-family: "avenir";
+}
+
+.paytb tr{
+  height: 80px;
+}
+
+.paytb .pay_total{
+  color: #5c1d06b1;
+}
+
+.ResetButton {
+  width: auto;
+  height: 30px;
+  font-family: 'Times New Roman';
+  color: #825831;
+  font-size: 20px;
+  background-color: #D5B9A1;
+  margin-top: 1vb;
+  border: 0px;
+
+}
+
+.ResetButton:hover {
+  background-color: #825831;
+  animation: slidebg 2s linear infinite;
+  color: #fff;
+}
+
+.ResetButton:active {
+  transform: translateY(4px);
+}
+
+.PayButton {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 15%;
+  border-radius: 5px;
+  font-family: 'avenir';
+  color:#825831;
+  font-size: 20px;
+  background-color:#D5B9A1;
+  border: 0px;
+  flex: 4;
+}
+
+.PayButton:hover {
+  background-color: #825831;
+  animation: slidebg 2s linear infinite;
+  color: #fff;
+}
+
+.PayButton:active {
+  transform: translateY(4px);
+}
+
+.QuantityButton {
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-family: 'Times New Roman';
+  background-color: transparent;
+  font-size: 20px;
+  margin-top: 1vb;
+  border: 0px;
+}
+
+.QuantityButton:hover {
+  background-color: #D5B9A1;
+  animation: slidebg 2s linear infinite;
+  color: #fff;
+}
+
+.QuantityButton:active {
+  transform: translateY(4px);
+}
+
+.QuantityTA {
+  text-align: center;
+  border-radius: 5%;
+  width: 60px;
+  height: 25px;
+  font-size: 15px;
+  background-color: #e7d3c1;
+  animation: slidebg 2s linear infinite;
+  border: 0px;
 }
 
 .footer-distributed{
