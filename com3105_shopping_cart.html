@@ -14,6 +14,58 @@
 
 	<!-- #3 add javascript here -->
 	<script language="JavaScript" type="text/javascript">
+		var product = [];
+		document.addEventListener("DOMContentLoaded", function() {
+			var empty = true;
+			var picture = ["DiamondRing.jpeg", "GoldRing.jpeg", "WeddingRing.jpeg"];
+			var prod_name = ["Diamond", "Gold", "Crystal"];
+			var price = [25.00, 30.00, 20.00];
+			var tableRow = 1;
+			var table = document.getElementById("shopCartTb");
+			for (var i=1; i<=3; i++) {
+				var id = "prod" + i;
+				var quantity = parseInt(sessionStorage.getItem(id));
+				if (quantity > 0) {
+					empty = false;
+					var row = table.insertRow(tableRow);
+					row.innerHTML = `<tr>
+										<td>
+											<img class="prod_img" src="${picture[i-1]}">
+										</td>
+										<td>${prod_name[i-1]} - Product 1</td>
+										<td class="other" id="${id}_price">$${price[i-1]}</td>
+										<td>
+											<button class="QuantityButton" type="button" id="${id}_min" onclick="min('#${id}_')">-</button>
+											<input class="QuantityTA" type="number" min="1" id="${id}_qty" 
+												oninput="this.value = !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null" 
+												onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" 
+												onChange="changeQty('#${id}_', this.value)">
+											<button class="QuantityButton" type="button" id="${id}_plus" onclick="plus('#${id}_')">+</button>
+										</td>
+										<td class="other" id="${id}_amt"></td>
+										<td>
+											<button type="button" class="removeButton" onclick="removeCart('${id}')">&#9587</button>
+										</td>
+									</tr>`;
+					row.id = id + "Tr";
+					row.setAttribute("class", "shopCartTr");
+					document.querySelector("#" + id + "_qty").value = quantity;
+					document.querySelector("#" + id + "_amt").innerHTML = "$" + (price[i-1] * quantity).toFixed(2);
+					product[tableRow-1] = i;
+					tableRow += 1;
+				}
+			}
+			if (empty) {
+				var row = table.insertRow(1);
+				row.innerHTML = `<tr>
+									<td class="emptyCart" colspan="6" >The Cart is Empty</td>
+								</tr>`;
+				document.querySelector("#clearButton").style.display = "none";
+			}
+			renewShoppingCart();
+			
+		});
+
 		function process() {
 			alert("Execute process()...");
 
@@ -30,10 +82,12 @@
 		function renewShoppingCart() {
 			var totalQty = 0;
 			var totalAmount = 0;
-			for (i=1; i<=3; i++) {
-				var qty = parseInt(document.querySelector("#prod" + i + "_qty").value);
-				totalQty += qty;
-				totalAmount += parseFloat(document.querySelector("#prod" + i + "_price").innerHTML.slice(1)) * qty;
+			for (var i=1; i<=3; i++) {
+				if (product.includes(i)) {
+					var qty = parseInt(document.querySelector("#prod" + i + "_qty").value);
+					totalQty += qty;
+					totalAmount += parseFloat(document.querySelector("#prod" + i + "_price").innerHTML.slice(1)) * qty;
+				}
 			}
 			document.querySelector("#number").innerHTML = totalQty;
 			document.querySelector("#amount").innerHTML = "$" + totalAmount.toFixed(2);
@@ -41,14 +95,12 @@
 
 		function min(id) {
 			var qty = parseInt(document.querySelector(id + "qty").value);
-			if (qty > 0) {
+			if (qty > 1) {
 				var price = parseFloat(document.querySelector(id + "price").innerHTML.slice(1));
 				document.querySelector(id + "qty").value = qty - 1;
 				document.querySelector(id + "amt").innerHTML = "$" + (price * (qty - 1)).toFixed(2);
+				sessionStorage.setItem(id.substring(1, 6), qty - 1);
 				renewShoppingCart();
-			}
-			if (qty - 1 == 0) {
-				document.querySelector(id + "amt").innerHTML = "--";
 			}
 		}
 
@@ -57,36 +109,51 @@
 			var price = parseFloat(document.querySelector(id + "price").innerHTML.slice(1));
 			document.querySelector(id + "qty").value = qty + 1;
 			document.querySelector(id + "amt").innerHTML = "$" + (price * (qty + 1)).toFixed(2);
+			sessionStorage.setItem(id.substring(1, 6), qty + 1);
 			renewShoppingCart();
 		}
 
 		function changeQty(id, value) {
-			if (value == null || value == "") 
-				value = 0;
-			else if (value.toString().includes("-")) {
-				value = value.toString().replace("-", "");
-				
-			}
-			else {
-				value = parseInt(value);
-			}
+			if (value == null || value == "" || value == 0) 
+				value = 1;
 			document.querySelector(id + "qty").value = value;
-			if (value != 0) {
-				var price = parseFloat(document.querySelector(id + "price").innerHTML.slice(1));
-				document.querySelector(id + "amt").innerHTML = "$" + (price * value).toFixed(2);
-			}
-			else
-				document.querySelector(id + "amt").innerHTML = "--";
+			var price = parseFloat(document.querySelector(id + "price").innerHTML.slice(1));
+			document.querySelector(id + "amt").innerHTML = "$" + (price * value).toFixed(2);
+			sessionStorage.setItem(id.substring(1, 6), value);
 			renewShoppingCart();
 		}
 
+		function removeCart(id) {
+			var table = document.getElementById("shopCartTb");
+			var index = document.getElementById(id + "Tr").rowIndex;
+			table.deleteRow(index);
+			sessionStorage.removeItem(id);
+			product = product.filter(x => x != id.substring(4));
+			if (table.rows.length == 1) {
+				var row = table.insertRow(1);
+				row.innerHTML = `<tr>
+									<td class="emptyCart" colspan="6">The Cart is Empty</td>
+								</tr>`;
+				document.querySelector("#clearButton").style.display = "none";
+			}
+			renewShoppingCart();
+		}
+
+		function clearAllItem() {
+			var table = document.getElementById("shopCartTb");
+			var length = table.rows.length;
+			for (var i=length-1; i>=1; i--) {
+				var id = table.rows[i].id;
+				removeCart(id.substring(0, 5));
+			}
+		}
 	</script>
 
 </head>
 
 <body>
 	<header>
-		<nav class="nav-box">
+		<nav>
 			<input type="checkbox" id="menu">
 			<label for="menu" class="line">
 				<div class="menu"></div>
@@ -94,14 +161,32 @@
 
 			<div class="menu-list">
 				<ul>
-					<li class="li1"><a class="menuButton" href="com3105_shopping_cart.html"><img width="55px"
-						height="55px" src="shoppingCart.png" alt />Shopping Cart</a></button></li>
-					<li class="li1"><a class="menuButton" href=""><img width="80px" height="65px"
-								src="favourite.png" alt />Favourite List</a></li>
-					<li class="li1"><a class="menuButton" href="com3105_info.html"><img width="55px" height="55px"
-								src="info.png" alt />Information of rings</a></li>
-					<li class="li1"><a class="menuButton" href="index.html"><img width="80px"
-								height="75px" src="aboutUs.png" alt />About Us</a></li>
+					<li class="li1">
+						<div class="area1">
+						<a class="menuButton" href="com3105_shopping_cart.html">
+							<img src="shoppingCart.png" alt />
+							<p class="menuP">Shopping Cart</p>
+						</a>
+						</div>
+					</li>
+					<!-- <li class="li1"><a class="menuButton" href=""><img width="80px" height="65px" src="favourite.png"
+								alt />Favourite List</a></li>-->
+					<li class="li1">
+						<div class="area1">
+						<a class="menuButton" href="com3105_info.html">
+							<img src="info.png" alt />
+							<p class="menuP">Information of rings</p>
+						</a>
+						</div>
+					</li>
+					<li class="li1">
+						<div class="area1">
+						<a class="menuButton" href="com3105_project.html">
+							<img src="aboutUs.png" alt />
+							<p class="menuP">About Us</p>
+						</a>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -122,60 +207,21 @@
 
 		<div class="cart_container">
 			<div class="order_area">
-					
-				
-
 				<!-- #3 table item is hard code, later change to database -->
-				<form>
-					<table class="shopCartTb">
-
-						<tr class="shopCartTr">
-							<th width="10%" class="title5">Item</th> <!--item picture-->
-							<th width="30%"> </th> <!--item title-->
-							<th width="20%" class="title5">Unit Price</th>
-							<th width="20%" class="title5">Quantity</th>
-							<th width="10%" class="title5">Amount</th>
-						</tr>
-
-						<tr class="shopCartTr">
-							<td><img class="prod_img" src="DiamondRing.jpeg"></td>
-							<td>Diamond - Product 1</td>
-							<td class="other" id="prod1_price">$2.98</td>
-							<td>
-								<button class="QuantityButton" type="button" id="prod1_min" onclick="min('#prod1_')">-</button>
-								<input class="QuantityTA" type="number" min="0" id="prod1_qty" value="0" onChange="changeQty('#prod1_', this.value)">
-								<button class="QuantityButton" type="button" id="prod1_plus" onclick="plus('#prod1_')">+</button>
-							</td>
-							<td  class="other" id="prod1_amt">--</td>
-						</tr>
-
-						<tr class="shopCartTr">
-							<td><img class="prod_img" src="GoldRing.jpeg"></td>
-							<td class="other">Gold - Product 1</td>
-							<td class="other" id="prod2_price">$4.50</td>
-							<td >
-								<button class="QuantityButton" type="button" id="prod2_min" onclick="min('#prod2_')">-</button>
-								<input class="QuantityTA" type="number" min="0" id="prod2_qty" value="0" onChange="changeQty('#prod2_', this.value)">
-								<button class="QuantityButton" type="button" id="prod2_plus" onclick="plus('#prod2_')">+</button>
-							</td>
-							<td  class="other" id="prod2_amt">--</td>
-						</tr>
-
-						<tr class="shopCartTr">
-							<td><img class="prod_img" src="WeddingRing.jpeg"></td>
-							<td class="other">Crystal - Product 1</td>
-							<td class="other" id="prod3_price">$9.98</td>
-							<td>
-								<button class="QuantityButton" type="button" id="prod3_min" onclick="min('#prod3_')">-</button>
-								<input class="QuantityTA" type="number" min="0" id="prod3_qty" value="0" onChange="changeQty('#prod3_', this.value)">
-								<button class="QuantityButton" type="button" id="prod3_plus" onclick="plus('#prod3_')">+</button>
-							</td>
-							<td  class="other" id="prod3_amt">--</td>
-						</tr>
-					</table>
-
-					<button class="ResetButton" onclick="reset()">Reset Cart</button>
-				</form>
+				<table class="shopCartTb" id="shopCartTb">
+					<tr class="shopCartTr">
+						<th width="10%" class="title5">Item</th> <!--item picture-->
+						<th width="30%"> </th> <!--item title-->
+						<th width="20%" class="title5">Unit Price</th>
+						<th width="20%" class="title5">Quantity</th>
+						<th width="10%" class="title5">Amount</th>
+						<th width="10%" ></th><!--remove-->
+					</tr>
+			
+				</table>
+				
+				<button type="button" class="ClearButton" onclick="clearAllItem()" id="clearButton">Clear Cart</button>
+				
 			</div>
 
 			<div class ="pay_area">
@@ -186,17 +232,19 @@
 					<table class="paytb">
 						<tr>
 							<td class="title4">Total Number: </td>
-							<td class="pay_total" id="number" >0
-							</td>
+							<td class="pay_total" id="number">0</td>
+							
 						</tr>
 
 						<tr>
 							<td class="pay_t">Total:</td>
 							<td class="pay_total" id="amount">$0.00</td>
 						</tr>
+						
 					</table>
 
 					<input class="PayButton" type="button" value="Checkout - Use Paypal" onclick="process()" />
+					
 				</form>
 			</div>
 		</div>
@@ -258,18 +306,6 @@
 		  </div>
 
 		</div>
-  
-		<div class="footer-right">
-		
-			<p>*Limited Special Offer:*</p>
-			<p>● 10% off for 2 pieces</p>
-			<p>● 15% off for 3 pieces</p>
-			<p>● 20% off for 4 pieces</p>
-			<p>● Free Local Delievery if exceeds HKD $650</p>
-			<p>● Free Overseas Delievery if exceeds HKD $1000</p>
-  
-		</div>
-  
 	  </footer>
 
 </body>

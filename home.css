@@ -147,47 +147,44 @@ p {
   font-family: "Lucida Handwriting";
 }
 
+
+
 .a1:link,
 a:visited {
-  background-color: white;
-  color: black;
-  border: 2px solid rgb(0, 0, 0);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 15cm;
-  font-family: 'Lucida Sans';
-  font-size: 30px;
+  text-decoration:none;
+ color: #825831;
 }
 
-.a1:hover,
+/* .a1:hover,
 a:active {
   background-color: #825831;
   color: white;
-}
+} */
 
 .menuButton {
-  background-color: white;
-  color: black;
-  border: 2px solid rgb(0, 0, 0);
-  height: 130px;
+  /* background-color: white; */
+  color: #825831;
+  /* border: 2px solid rgb(0, 0, 0); */
+  height: auto;
   text-align: center;
-  width: 130px;
-  display: inline-block;
-  border-radius: 15cm;
-  font-family: 'Lucida Sans';
-  font-size: 25px;
+  width: 30%;
+  /* display: inline-block; */
+  /* border-radius: 15cm; */
+  font-family: 'avenir';
+  font-size: 20px;
+  white-space: nowrap;
+  text-decoration: none;
+
 }
 
 .smallIcon{
   width: 85px;
-  height: 85px;
 }
 
 .menuButton:hover {
   background-color: #825831;
   color: white;
+  text-emphasis-color: white;
 }
 
 .title7{
@@ -230,8 +227,18 @@ a:active {
 }
 
 .li1 {
-  margin-top: 90px;
-  height: 110px;
+  height: auto;
+  width: auto;
+}
+
+.li1:hover{
+  background-color:#825831;
+  color: white;
+}
+
+.area1{
+  color: white;
+  margin-inline-start: 10%;
 }
 
 .line {
@@ -300,32 +307,44 @@ a:active {
 }
 
 .menu-list {
-  width: 0px;
-  height: 100vh;
+  margin-block-start: 45px;
+  height: 100%;
   right: 0px;
   background: #e2dcd1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
-  padding-top: 60px;
   position: fixed;
-  z-index: 1;
   transition: all .6s;
   overflow: hidden;
+  width: 0;
+  /* display: none; */
 }
 
 .menu-list ul {
   list-style: none;
-  margin-left: 70px;
-  padding: 0;
+  padding: 0%;
+  /* margin-left: 10%; */
 }
 
 .menu-list ul>li {
   display: block;
-  width: 100px;
+  width: auto;
+}
+
+.li1 img{
+  width: 40px;
+  height: 40px;
+  display: inline-block;
 }
 
 input#menu {
   display: none;
 }
+
+.menuP{
+  display: inline-block;
+text-align: center;
+}
+
 
 .frame1 {
   width: 100vw;
@@ -692,6 +711,14 @@ input#menu {
 }
 
 /* cart css */
+
+.emptyCart{
+  margin-top: 30%;
+	font-family: "avenir";
+	text-align: center;
+	color:#5c1d06;
+}
+
 .order_area {
   margin-left: 5%;
   width: 70%;
@@ -773,7 +800,7 @@ input#menu {
   margin-left: 3%;
   margin-right: 5%;
   width: 20%;
-  height:auto;
+  height: 460px;
   padding-left: 2%;
   padding-right: 2%;
   /* box-shadow: 0 3px 10px 2px rgba(217, 188, 170, 0.404); */
@@ -802,7 +829,7 @@ input#menu {
   color: #5c1d06b1;
 }
 
-.ResetButton {
+.ClearButton {
   width: auto;
   height: 30px;
   font-family: 'Times New Roman';
@@ -814,15 +841,36 @@ input#menu {
 
 }
 
-.ResetButton:hover {
+.ClearButton:hover {
   background-color: #825831;
   animation: slidebg 2s linear infinite;
   color: #fff;
 }
 
-.ResetButton:active {
+.ClearButton:active {
   transform: translateY(4px);
 }
+
+.removeButton{
+	border: none;
+	border-radius:100px;
+	background-color: transparent;
+	text-align: center;
+	width:30px;
+	height:30px;
+	color: red;
+	font-size:15px;
+	font-family:"avenir";
+  
+}
+
+.removeButton:hover{
+   color: black;
+   /* background-color: #d5d5d5; */
+   animation: slidebg 2s linear infinite;
+
+}
+
 
 .PayButton {
   text-align: center;
@@ -837,7 +885,7 @@ input#menu {
   font-size: 20px;
   background-color:#D5B9A1;
   border: 0px;
-  flex: 4;
+  margin-top: 30%;
 }
 
 .PayButton:hover {
@@ -928,3 +976,12 @@ input#menu {
   width: 33%;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
